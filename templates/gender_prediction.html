@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block bodyblock %}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <br><br>
+            <h3 class="display-6">Gender Prediction</h3>
+            <br><br>
+            <p>
+                Try to upload an image in any of these formats(.jpg, .jpeg, .png) and get its gender prediction(male or female)!
+            </p>
+            <br><br>
+            <!-- upload images form -->
+            <form action="#" method="POST" enctype="multipart/form-data">
+                <div class="input-group">
+                    <input type="file" class="form-control" name="image_name" required>
+                    <input type="submit" value="upload to predict" class="btn btn-outline-primary">
+                </div>
+            </form>
+        </div>
+
+        <div class="col-8">
+            <!-- Report the gender predictiion result -->
+            <!-- Predicted Image -->
+            {% if imageupload %}
+            <br><br>
+            <div style="text-align:center;">
+                <h3 class="display-6">Image Predicted</h3>
+            </div>
+            <br>
+            <div style="text-align:center;">
+                <img src="/static/predict/predictioin_result.jpg" class="image-fluid" width="400" alt="">
+            </div>
+            
+            <hr>
+            <br><br>
+            <!-- show the report -->
+            <table class="table table-hover table-striped">
+                <tr>
+                    <th>Cropped Face</th>
+                    <th>Eigen Image</th>
+                    <th>Gender Prediction</th>
+                    <th>Probability</th>
+                </tr>
+                {% for item in report %}
+                    <tr>
+                        <td>
+                            <img src="/static/predict/{{ item[0] }}" class="image-fluid" height="100" alt="">
+                        </td>
+                        <td>
+                            <img src="/static/predict/{{ item[1] }}" class="image-fluid" height="100" alt="">
+                        </td>
+                        <td>{{ item[2] }}</td>
+                        <td>{{ item[3] }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

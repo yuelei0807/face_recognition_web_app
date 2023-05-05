@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block bodyblock %}
+
+<div class="container">
+    <br><br>
+    <div style="text-align:center;">
+        <h3 class="display-6">Face Recognition Web App</h3>
+    </div>
+    
+    <br><br>
+        <div class="row">
+            <div class="col-md-6">
+                <h2>The key function of the app:</h2>
+                <p>gender classification</p>
+
+                <h2>How to use:</h2>
+                <ol>
+                    <li>Users can upload an image containing a face to this app.</li>
+                    <li>The app processes the image in the background, including:</li>
+                    <ul>
+                        <li>Converting the image to grayscale;</li>
+                        <li>Cropping the face;</li>
+                        <li>Calculating the Eigen image;</li>
+                        <li>Model prediction;</li>
+                    </ul>
+                </ol>
+
+            </div>
+        </div>
+    <br><br>
+    
+    <div style="text-align:center;">
+        <a class="btn btn-outline-primary" href="/app/gender_prediction/" style="color: rgb(144, 42, 238); font-size: 30px; font-family: Arial, sans-serif; background-color: #6bb3f3; border-color: #e0e99d;">Gender Prediction</a>
+    </div>
+
+    <br><br>
+
+    <div>
+        <h2>Here is a figure explaining how the app works:</h2>
+    </div>
+
+    <br><br>
+
+    <div style="text-align:center;">
+        <img src="/static/images/icon2.png" class="image-fluid" width="400" alt="">
+    </div>
+
+   
+</div>
+
+
+{% endblock %}
